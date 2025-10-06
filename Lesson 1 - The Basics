@@ -1,0 +1,29 @@
+// ----------- Declaring a string -------------------
+// strings are an array of characters 
+string name = "Kobbie";
+// --------------------------------------------------
+
+// ---------- String length -------------------------
+Console.WriteLine(name.Length); // outputs how many characters (and spaces) 
+
+// --------------------------------------------------
+
+// ------------- Changing cases ---------------------
+Console.WriteLine(name.ToLower()); // outputs "kobbie"
+Console.WriteLine(name.ToUpper()); // outputs "KOBBIE"
+// --------------------------------------------------
+
+// ------------ Accessing characters ----------------
+Console.WriteLine(name[0]); // outputs "K" bcs it is teh fisrt character in the array 
+// --------------------------------------------------
+
+// ---------- Substring -----------------------------
+string part = name.Substring(1, 3); // starts at 1 and goes 3 places 
+Console.WriteLine(part); // outputs "obb"
+// --------------------------------------------------
+
+// -------- Concatenation ---------------------------
+string fullName = name + " Korsah";
+Console.WriteLine(fullName);
+// --------------------------------------------------
+
