@@ -1,0 +1,10 @@
+static void Main(string[] args)
+{
+    Console.Write("Enter a word: ");
+    string word = Console.ReadLine();
+
+    string reversed = new string(word.Reverse().ToArray());
+    Console.Write($"Your word reversed is: {reversed}");
+
+    Console.ReadKey(); 
+}
