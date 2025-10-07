@@ -19,5 +19,7 @@ static void Main(string[] args)
     Console.WriteLine(messy.Trim()); // removes spaces
     // ---------------------------------------------------------------------
 
+    Console.ReadKey(); 
+
 
 }
