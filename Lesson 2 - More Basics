@@ -1,0 +1,23 @@
+static void Main(string[] args)
+{
+    string name = "Kobbie";
+
+    // -------------------- Interpolation -------------------------------
+    // to start an interlopation you start with a dollar sign ($)
+    // to imbed a variable you use a curly bracket "{}"
+    Console.WriteLine($"My name is {name}"); // outputs My name is Kobbie 
+    // -------------------------------------------------------------------
+
+    // -------------------- StartWith / Contains/ EndsWith ----------------
+    Console.WriteLine(name.StartsWith("Ko"));  // true
+    Console.WriteLine(name.Contains("bb")); // true
+    Console.WriteLine(name.EndsWith("ie"));   // true
+    // --------------------------------------------------------------------
+
+    // ----------------------- Trim spaces --------------------------------
+    string messy = "   hello   ";
+    Console.WriteLine(messy.Trim()); // removes spaces
+    // ---------------------------------------------------------------------
+
+
+}
