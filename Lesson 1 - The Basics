@@ -27,3 +27,4 @@ string fullName = name + " Korsah";
 Console.WriteLine(fullName);
 // --------------------------------------------------
 
+Console.ReadKey(); 
