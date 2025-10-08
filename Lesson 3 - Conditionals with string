@@ -1,0 +1,16 @@
+            // ----------- Conditionals with string --------------
+            Console.Write("Enter your favourite language: ");
+            string lang = Console.ReadLine().ToLower();
+
+            if (lang == "c#")
+            {
+                Console.WriteLine("Nice choice! Powerful and clean.");
+            }
+            else if (lang == "python")
+            {
+                Console.WriteLine("Smooth and simple — great for quick projects!");
+            }
+            else
+            {
+                Console.WriteLine("Cool! Every language has its strengths.");
+            }
