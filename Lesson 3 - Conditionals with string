@@ -14,3 +14,4 @@
             {
                 Console.WriteLine("Cool! Every language has its strengths.");
             }
+            Console.Readkey();
