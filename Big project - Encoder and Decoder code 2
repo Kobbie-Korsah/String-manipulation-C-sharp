@@ -1,0 +1,74 @@
+static string EncodeMessage(string message)
+{
+    string encoded = "";  // This will store the final encoded message
+
+    foreach (char c in message)
+    {
+        if (c >= 'a' && c <= 'z')  // Only shift lowercase letters
+        {
+            char shifted = (char)(c + 1);  // Shift the letter by 1
+            if (shifted > 'z')             // Wrap around if past 'z'
+                shifted = 'a';
+            encoded += shifted;            // Add the shifted character to the encoded string
+        }
+        else
+        {
+            encoded += c;  // Keep spaces, punctuation, and other characters as they are
+        }
+    }
+    return encoded;  // Return the full encoded message
+}
+
+static string DecodeMessage(string message)
+{
+    string decoded = "";  // This will store the final decoded message
+
+    foreach (char c in message)
+    {
+        if (c >= 'a' && c <= 'z')  // Only shift lowercase letters
+        {
+            char shifted = (char)(c - 1);  // Shift the letter back by 1
+            if (shifted < 'a')             // Wrap around if before 'a'
+                shifted = 'z';
+            decoded += shifted;            // Add the shifted character to the decoded string
+        }
+        else
+        {
+            decoded += c;  // Keep spaces, punctuation, and other characters as they are
+        }
+    }
+    return decoded;  // Return the full decoded message
+}
+
+static void Main(string[] args)
+{
+    while (true)  // Infinite loop until the user chooses to exit
+    {
+        Console.Write("Do you want to encode, decode, or exit? ");
+        string choice = Console.ReadLine().ToLower();  // Make the input lowercase for consistency
+
+        if (choice == "exit")  // Exit the program
+        {
+            Console.WriteLine("Goodbye!");
+            break;
+        }
+        else if (choice == "encode")  // Encode a message
+        {
+            Console.Write("Enter your message (lowercase letters only): ");
+            string message = Console.ReadLine();
+            string encoded = EncodeMessage(message);  // Call the encoding function
+            Console.WriteLine($"Your encoded message is: {encoded}");
+        }
+        else if (choice == "decode")  // Decode a message
+        {
+            Console.Write("Enter your message (lowercase letters only): ");
+            string message = Console.ReadLine();
+            string decoded = DecodeMessage(message);  // Call the decoding function
+            Console.WriteLine($"Your decoded message is: {decoded}");
+        }
+        else  // Handle invalid input
+        {
+            Console.WriteLine("Invalid choice, try again.");
+        }
+    }
+}
