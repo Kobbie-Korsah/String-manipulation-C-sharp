@@ -1,0 +1,92 @@
+static string EncodeMessage(string message)
+{
+    string encoded = "";  // This will store the final encoded (encrypted) message
+
+    foreach (char c in message)  // Go through each character in the message
+    {
+        if (c >= 'a' && c <= 'z')  // If the character is a lowercase letter
+        {
+            char shifted = (char)(c + 1);  // Shift the letter forward by 1 (e.g. a → b)
+            if (shifted > 'z')             // If we go past 'z', wrap around to 'a'
+                shifted = 'a';
+            encoded += shifted;            // Add the shifted letter to the encoded message
+        }
+        else if (c >= 'A' && c <= 'Z')  // If the character is an uppercase letter
+        {
+            char shifted = (char)(c + 1);  // Shift it forward by 1 (e.g. A → B)
+            if (shifted > 'Z')             // If we go past 'Z', wrap around to 'A'
+                shifted = 'A';
+            encoded += shifted;            // Add the shifted letter to the encoded message
+        }
+        else
+        {
+            encoded += c;  // Keep spaces, punctuation, and other symbols as they are
+        }
+    }
+
+    return encoded;  // Return the full encoded (encrypted) message
+}
+
+static string DecodeMessage(string message)
+{
+    string decoded = "";  // This will store the final decoded (decrypted) message
+
+    foreach (char c in message)  // Go through each character in the message
+    {
+        if (c >= 'a' && c <= 'z')  // If the character is a lowercase letter
+        {
+            char shifted = (char)(c - 1);  // Shift the letter backward by 1 (e.g. b → a)
+            if (shifted < 'a')             // If we go before 'a', wrap around to 'z'
+                shifted = 'z';
+            decoded += shifted;            // Add the shifted letter to the decoded message
+        }
+        else if (c >= 'A' && c <= 'Z')  // If the character is an uppercase letter
+        {
+            char shifted = (char)(c - 1);  // Shift it backward by 1 (e.g. B → A)
+            if (shifted < 'A')             // If we go before 'A', wrap around to 'Z'
+                shifted = 'Z';
+            decoded += shifted;            // Add the shifted letter to the decoded message
+        }
+        else
+        {
+            decoded += c;  // Keep spaces, punctuation, and other symbols as they are
+        }
+    }
+
+    return decoded;  // Return the full decoded (decrypted) message
+}
+
+static void Main(string[] args)
+{
+    Console.WriteLine("Welcome to The Encryptor");  // Greeting message
+
+    while (true)  // Keep running until the user decides to exit
+    {
+        Console.Write("Do you want to encode, decode, or exit? ");
+        string choice = Console.ReadLine().ToLower();  // Read and normalize user input
+
+        if (choice == "exit")  // Exit option
+        {
+            Console.WriteLine("Goodbye!");
+            break;  // End the loop and stop the program
+        }
+        else if (choice == "encode")  // Encode (encrypt) option
+        {
+            Console.Write("Enter your message you would like to encrypt: ");
+            string message = Console.ReadLine();       // Get user input
+            string encoded = EncodeMessage(message);   // Call encoding method
+            Console.WriteLine($"Your encrypted message is: {encoded}");
+        }
+        else if (choice == "decode")  // Decode (decrypt) option
+        {
+            Console.Write("Enter your message you would like to decrypt: ");
+            string message = Console.ReadLine();       // Get user input
+            string decoded = DecodeMessage(message);   // Call decoding method
+            Console.WriteLine($"Your decrypted message is: {decoded}");
+        }
+        else  // Handle invalid input
+        {
+            Console.WriteLine("Invalid choice, try again.");
+        }
+    }
+}
