@@ -27,3 +27,4 @@
             int index = line.IndexOf("C#");
             if (index != -1)
                 Console.WriteLine($"Found 'C#' at index {index}");
+            Console.Readkey();
