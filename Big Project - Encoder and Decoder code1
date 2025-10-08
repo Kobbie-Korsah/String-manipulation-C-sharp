@@ -1,0 +1,58 @@
+static string EncodeMessage(string message)
+{
+    string encoded = "";
+    foreach (char c in message)
+    {
+        char shifted = (char)(c + 1);
+        if (shifted > 'z')  // If we go past 'z', wrap around to 'a'
+            shifted = 'a';
+        encoded += shifted;
+    }
+    return encoded;
+}
+
+static string DecodeMessage(string message)
+{
+    string decoded = "";
+    foreach (char c in message)
+    {
+        char shifted = (char)(c - 1);
+        if (shifted < 'a')  // If we go before 'a', wrap around to 'z'
+            shifted = 'z';
+        decoded += shifted;
+    }
+    return decoded;
+}
+
+static void Main(string[] args)
+{
+    while (true)
+    {
+        Console.Write("Do you want to encode, decode, or exit? (Please remeber that this code does not account for spaces) ");
+        string choice = Console.ReadLine().ToLower();
+
+        if (choice == "exit")
+        {
+            Console.WriteLine("Goodbye!");
+            break;
+        }
+        else if (choice == "encode")
+        {
+            Console.Write("Enter your message: ");
+            string message = Console.ReadLine();
+            string encoded = EncodeMessage(message);
+            Console.WriteLine($"Your encoded message is: {encoded}");
+        }
+        else if (choice == "decode")
+        {
+            Console.Write("Enter your message: ");
+            string message = Console.ReadLine();
+            string decoded = DecodeMessage(message);
+            Console.WriteLine($"Your decoded message is: {decoded}");
+        }
+        else
+        {
+            Console.WriteLine("Invalid choice, try again.");
+        }
+    }
+}
