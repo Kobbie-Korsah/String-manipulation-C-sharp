@@ -1,0 +1,29 @@
+            // ------------- Looping with Strings ------------------
+            string word = "Kobbie";
+
+            foreach (char c in word)
+            {
+                Console.WriteLine(c);
+            }
+            // ----------------------- OR ---------------------------
+            for (int i = 0; i < word.Length; i++)
+            {
+                Console.WriteLine(word[i]);
+            }
+
+            // ------- Counting Characters in strings ---------------
+            int count = 0;
+            string text = "programming";
+
+            foreach (char c in text)
+            {
+                if (c == 'g')
+                    count++;
+            }
+
+            Console.WriteLine($"There are {count} g's.");
+            // ------------- Searching ---------------------------------
+            string line = "I love C# programming";
+            int index = line.IndexOf("C#");
+            if (index != -1)
+                Console.WriteLine($"Found 'C#' at index {index}");
